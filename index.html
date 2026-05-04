@@ -3,192 +3,776 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oğuz Doruk Legal</title>
+    <title>Oğuz Doruk | Independent Developer</title>
     <meta
       name="description"
-      content="Privacy Policy and Terms of Use for apps by Oğuz Doruk."
+      content="Oğuz Doruk is an entrepreneur and independent developer building apps in public from Bali."
     />
+    <meta name="theme-color" content="#11100f" />
+    <meta property="og:title" content="Oğuz Doruk | Independent Developer" />
+    <meta
+      property="og:description"
+      content="Entrepreneur, independent developer, and software engineer building apps in public from Bali."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/profile.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
     <style>
       :root {
-        --bg: #f6f3ee;
-        --surface: rgba(255, 255, 255, 0.74);
-        --surface-border: rgba(23, 27, 38, 0.08);
-        --text: #171b26;
-        --muted: #5d6473;
-        --accent: #0d6b5d;
-        --accent-strong: #09493f;
-        --shadow: 0 24px 70px rgba(23, 27, 38, 0.08);
+        color-scheme: dark;
+        --bg: #11100f;
+        --panel: #181614;
+        --panel-strong: #211e1b;
+        --text: #f4efe7;
+        --muted: #b4aa9f;
+        --quiet: #84796f;
+        --line: rgba(244, 239, 231, 0.11);
+        --accent: #d8a35d;
+        --accent-soft: rgba(216, 163, 93, 0.12);
+        --max: 560px;
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        min-height: 100vh;
-        font-family: "Georgia", "Times New Roman", serif;
+        min-height: 100dvh;
+        font-family: "Outfit", ui-sans-serif, system-ui, -apple-system, sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at top left, rgba(13, 107, 93, 0.14), transparent 30%),
-          radial-gradient(circle at bottom right, rgba(197, 150, 84, 0.14), transparent 28%),
+          radial-gradient(circle at 50% -20%, rgba(216, 163, 93, 0.16), transparent 34rem),
           var(--bg);
       }
 
-      main {
-        width: min(960px, calc(100% - 32px));
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(17, 16, 15, 0), rgba(17, 16, 15, 0.78));
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
+      }
+
+      img,
+      svg {
+        display: block;
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+        width: min(var(--max), calc(100% - 32px));
         margin: 0 auto;
-        padding: 56px 0 72px;
+        padding: clamp(26px, 6vw, 52px) 0 28px;
       }
 
-      .hero {
-        padding: 32px;
-        border: 1px solid var(--surface-border);
-        border-radius: 28px;
-        background: var(--surface);
-        backdrop-filter: blur(14px);
-        box-shadow: var(--shadow);
+      .profile {
+        text-align: center;
       }
 
-      .eyebrow {
-        margin: 0 0 12px;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--accent);
+      .avatar-wrap {
+        width: 144px;
+        height: 144px;
+        margin: 0 auto 18px;
+        padding: 4px;
+        border: 1px solid var(--line);
+        border-radius: 34px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+      }
+
+      .avatar {
+        width: 100%;
+        height: 100%;
+        border-radius: 29px;
+        object-fit: cover;
       }
 
       h1 {
         margin: 0;
-        font-size: clamp(2.4rem, 5vw, 4.4rem);
-        line-height: 0.98;
+        font-size: clamp(2.15rem, 9vw, 3.25rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
       }
 
-      .intro {
-        width: min(56ch, 100%);
-        margin: 18px 0 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        font-size: 1rem;
-        line-height: 1.7;
+      .role {
+        margin: 12px 0 0;
+        color: var(--accent);
+        font-size: 0.98rem;
+        font-weight: 700;
+      }
+
+      .bio {
+        max-width: 34rem;
+        margin: 12px auto 0;
         color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.62;
       }
 
-      .grid {
+      .location {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        margin-top: 16px;
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(24, 22, 20, 0.72);
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .quick-actions {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 18px;
-        margin-top: 24px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 22px;
       }
 
-      .card {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        padding: 22px;
-        text-decoration: none;
-        color: inherit;
-        border-radius: 24px;
-        border: 1px solid var(--surface-border);
-        background: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 14px 40px rgba(23, 27, 38, 0.06);
+      .action {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--panel);
+        color: var(--text);
+        font-weight: 700;
         transition:
-          transform 180ms ease,
-          border-color 180ms ease,
-          box-shadow 180ms ease;
+          transform 140ms ease,
+          border-color 140ms ease,
+          background 140ms ease;
       }
 
-      .card:hover {
-        transform: translateY(-3px);
-        border-color: rgba(13, 107, 93, 0.28);
-        box-shadow: 0 22px 44px rgba(23, 27, 38, 0.08);
+      .action.primary {
+        border-color: rgba(216, 163, 93, 0.38);
+        background: var(--accent);
+        color: #17120d;
       }
 
-      .card-label {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      .action:hover {
+        border-color: rgba(216, 163, 93, 0.42);
+        background: var(--panel-strong);
+      }
+
+      .action.primary:hover {
+        background: #e1af6d;
+      }
+
+      .action:active,
+      .link-chip:active,
+      .app-card:active,
+      .store-link:active {
+        transform: scale(0.985);
+      }
+
+      .section {
+        margin-top: 30px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin: 0 0 12px;
+        color: var(--accent);
         font-size: 0.78rem;
         font-weight: 700;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
+      }
+
+      .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+
+      .links-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .link-chip {
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 10px;
+        min-height: 64px;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(24, 22, 20, 0.82);
+        transition:
+          transform 140ms ease,
+          border-color 140ms ease,
+          background 140ms ease;
+      }
+
+      .link-chip:hover {
+        border-color: rgba(216, 163, 93, 0.42);
+        background: var(--panel-strong);
+      }
+
+      .icon-box {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--accent-soft);
         color: var(--accent);
       }
 
-      .card-title {
-        margin: 0;
-        font-size: 1.35rem;
+      .icon-box svg {
+        width: 16px;
+        height: 16px;
       }
 
-      .card-copy {
+      .link-name,
+      .app-name {
+        display: block;
+        color: var(--text);
+        font-weight: 700;
+      }
+
+      .link-address,
+      .app-subtitle {
+        display: block;
+        min-width: 0;
+        margin-top: 2px;
+        overflow: hidden;
+        color: var(--quiet);
+        font-size: 0.84rem;
+        line-height: 1.35;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .apps {
+        display: grid;
+        gap: 8px;
+      }
+
+      .app-card {
+        display: grid;
+        grid-template-columns: 54px minmax(0, 1fr) 22px;
+        gap: 12px;
+        align-items: center;
+        min-height: 74px;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(24, 22, 20, 0.82);
+        transition:
+          transform 140ms ease,
+          border-color 140ms ease,
+          background 140ms ease;
+      }
+
+      .app-card:hover {
+        border-color: rgba(216, 163, 93, 0.42);
+        background: var(--panel-strong);
+      }
+
+      .app-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 13px;
+        object-fit: cover;
+        background: #0d0d0d;
+      }
+
+      .app-copy {
+        min-width: 0;
+      }
+
+      .app-name {
+        font-size: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      .app-arrow {
+        color: var(--accent);
+      }
+
+      .app-arrow svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .store-link {
+        display: flex;
+        min-height: 50px;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        margin-top: 6px;
+        border: 1px solid rgba(216, 163, 93, 0.36);
+        border-radius: 16px;
+        background: var(--accent);
+        color: #17120d;
+        font-weight: 700;
+        transition:
+          transform 140ms ease,
+          background 140ms ease;
+      }
+
+      .store-link:hover {
+        background: #e1af6d;
+      }
+
+      .store-link svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .about-card {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(24, 22, 20, 0.72);
+      }
+
+      .about-card p {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        font-size: 0.98rem;
-        line-height: 1.6;
         color: var(--muted);
+        font-size: 0.96rem;
+        line-height: 1.62;
       }
 
-      .arrow {
-        margin-top: auto;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        font-weight: 600;
-        color: var(--accent-strong);
+      .about-card p + p {
+        margin-top: 12px;
       }
 
       footer {
-        margin-top: 20px;
-        padding: 0 4px;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        font-size: 0.92rem;
-        color: var(--muted);
+        padding: 34px 0 8px;
+        color: var(--quiet);
+        font-size: 0.82rem;
+        text-align: center;
       }
 
-      @media (max-width: 640px) {
-        main {
-          padding-top: 24px;
+      @media (max-width: 420px) {
+        .page {
+          width: min(100% - 22px, var(--max));
         }
 
-        .hero {
-          padding: 24px;
-          border-radius: 22px;
+        .avatar-wrap {
+          width: 132px;
+          height: 132px;
+          border-radius: 31px;
+        }
+
+        .avatar {
+          border-radius: 26px;
+        }
+
+        .quick-actions {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .links-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .app-card {
+          grid-template-columns: 50px minmax(0, 1fr) 20px;
+          min-height: 66px;
+          padding: 8px;
+          border-radius: 15px;
+        }
+
+        .app-icon {
+          width: 48px;
+          height: 48px;
+          border-radius: 12px;
         }
       }
     </style>
   </head>
   <body>
-    <main>
-      <section class="hero">
-        <p class="eyebrow">Legal</p>
-        <h1>App policies without the usual ugly PDF energy.</h1>
-        <p class="intro">
-          This page hosts privacy policies and terms for apps by Oğuz Doruk.
-          For now, Voicely is live. The rest can join the party later.
+    <main class="page">
+      <header class="profile">
+        <div class="avatar-wrap">
+          <img class="avatar" src="assets/profile.jpg" alt="Oğuz Doruk" width="144" height="144" />
+        </div>
+        <h1>Oğuz Doruk</h1>
+        <p class="role">Entrepreneur | Independent Developer</p>
+        <p class="bio">
+          Software engineer with over a decade of experience. Building cool apps
+          in public, traveling, and sharing my journey.
         </p>
+        <div class="location">📍 Based in Bali 🌴</div>
 
-        <div class="grid">
-          <a class="card" href="/voicely/privacy/">
-            <span class="card-label">Voicely</span>
-            <h2 class="card-title">Privacy Policy</h2>
-            <p class="card-copy">
-              How Voicely handles audio, transcripts, analytics, and your local
-              data.
-            </p>
-            <span class="arrow">Open page -></span>
+        <div class="quick-actions" aria-label="Primary links">
+          <a class="action primary" href="mailto:contact@oguzdoruk.com">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 6h16v12H4zM4 7l8 6 8-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Email
+          </a>
+          <a class="action" href="#apps">Apps</a>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="links-title">
+        <h2 class="section-title" id="links-title">Links</h2>
+        <div class="links-grid">
+          <a class="link-chip" href="mailto:contact@oguzdoruk.com">
+            <span class="icon-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4 6h16v12H4zM4 7l8 6 8-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            <span>
+              <span class="link-name">Email</span>
+              <span class="link-address">contact@oguzdoruk.com</span>
+            </span>
           </a>
 
-          <a class="card" href="/voicely/terms/">
-            <span class="card-label">Voicely</span>
-            <h2 class="card-title">Terms of Use</h2>
-            <p class="card-copy">
-              The rules, disclaimers, and limits that apply when using
-              Voicely.
-            </p>
-            <span class="arrow">Open page -></span>
+          <a class="link-chip" href="https://x.com/oguzbuilds" target="_blank" rel="noopener noreferrer">
+            <span class="icon-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span>
+              <span class="link-name">X</span>
+              <span class="link-address">x.com/oguzbuilds</span>
+            </span>
+          </a>
+
+          <a class="link-chip" href="https://instagram.com/ouzdoruk" target="_blank" rel="noopener noreferrer">
+            <span class="icon-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.2-2.25a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span>
+              <span class="link-name">Instagram</span>
+              <span class="link-address">instagram.com/ouzdoruk</span>
+            </span>
+          </a>
+
+          <a class="link-chip" href="https://www.youtube.com/@oguzdoruk" target="_blank" rel="noopener noreferrer">
+            <span class="icon-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M23 7.2a3 3 0 0 0-2.1-2.12C19.05 4.58 12 4.58 12 4.58s-7.05 0-8.9.5A3 3 0 0 0 1 7.2 31.3 31.3 0 0 0 .5 12 31.3 31.3 0 0 0 1 16.8a3 3 0 0 0 2.1 2.12c1.85.5 8.9.5 8.9.5s7.05 0 8.9-.5A3 3 0 0 0 23 16.8a31.3 31.3 0 0 0 .5-4.8 31.3 31.3 0 0 0-.5-4.8ZM9.75 15.35v-6.7L15.6 12l-5.85 3.35Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span>
+              <span class="link-name">YouTube</span>
+              <span class="link-address">youtube.com/@oguzdoruk</span>
+            </span>
+          </a>
+
+          <a class="link-chip" href="https://github.com/oguzkr" target="_blank" rel="noopener noreferrer">
+            <span class="icon-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.18-3.35-1.18a2.64 2.64 0 0 0-1.1-1.45c-.9-.62.07-.6.07-.6a2.1 2.1 0 0 1 1.53 1.03 2.13 2.13 0 0 0 2.91.83 2.13 2.13 0 0 1 .64-1.34c-2.21-.25-4.54-1.1-4.54-4.92a3.85 3.85 0 0 1 1.03-2.67 3.58 3.58 0 0 1 .1-2.64s.84-.27 2.75 1.02A9.45 9.45 0 0 1 12 7.05c.85 0 1.7.11 2.5.34 1.9-1.29 2.74-1.02 2.74-1.02.37.84.4 1.8.1 2.64a3.84 3.84 0 0 1 1.02 2.67c0 3.83-2.33 4.67-4.55 4.92.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span>
+              <span class="link-name">GitHub</span>
+              <span class="link-address">github.com/oguzkr</span>
+            </span>
+          </a>
+
+          <a class="link-chip" href="https://www.linkedin.com/in/oguzkr" target="_blank" rel="noopener noreferrer">
+            <span class="icon-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M6.94 8.98H3.56V20h3.38V8.98ZM5.25 4a1.96 1.96 0 1 0 0 3.92A1.96 1.96 0 0 0 5.25 4Zm6.98 4.98H9V20h3.24v-5.45c0-1.44.27-2.83 2.05-2.83 1.76 0 1.78 1.64 1.78 2.92V20h3.24v-6.04c0-2.97-.64-5.25-4.1-5.25-1.66 0-2.78.91-3.24 1.78h-.04V8.98Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span>
+              <span class="link-name">LinkedIn</span>
+              <span class="link-address">linkedin.com/in/oguzkr</span>
+            </span>
+          </a>
+
+        </div>
+      </section>
+
+      <section class="section" id="apps" aria-labelledby="apps-title">
+        <h2 class="section-title" id="apps-title">Apps</h2>
+        <div class="apps">
+          <a
+            class="app-card"
+            href="https://apps.apple.com/tr/app/voicely-voice-notes-to-text/id6761912065"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="app-icon"
+              src="assets/apps/voicely.jpeg"
+              alt="Voicely AI app icon"
+              width="54"
+              height="54"
+              loading="lazy"
+            />
+            <div class="app-copy">
+              <span class="app-name">Voicely AI</span>
+              <span class="app-subtitle">Voice messages to text</span>
+            </div>
+            <span class="app-arrow">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 17 17 7M9 7h8v8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </a>
+
+          <a class="app-card" href="https://lingowidget.app" target="_blank" rel="noopener noreferrer">
+            <img
+              class="app-icon"
+              src="assets/apps/lingo.png"
+              alt="Lingo Widget app icon"
+              width="54"
+              height="54"
+              loading="lazy"
+            />
+            <div class="app-copy">
+              <span class="app-name">Lingo Widget</span>
+              <span class="app-subtitle">Daily vocabulary practice</span>
+            </div>
+            <span class="app-arrow">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 17 17 7M9 7h8v8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </a>
+
+          <a
+            class="app-card"
+            href="https://apps.apple.com/us/app/learn-spanish-daily-vocabito/id6759367008"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="app-icon"
+              src="assets/apps/vocabito.jpg"
+              alt="Vocabito app icon"
+              width="54"
+              height="54"
+              loading="lazy"
+            />
+            <div class="app-copy">
+              <span class="app-name">Vocabito</span>
+              <span class="app-subtitle">Learn Spanish daily</span>
+            </div>
+            <span class="app-arrow">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 17 17 7M9 7h8v8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </a>
+
+          <a
+            class="app-card"
+            href="https://apps.apple.com/tr/app/games-for-cats-kittens/id6745115519"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="app-icon"
+              src="assets/apps/gamesforcats.jpeg"
+              alt="Games for Cats and Kittens app icon"
+              width="54"
+              height="54"
+              loading="lazy"
+            />
+            <div class="app-copy">
+              <span class="app-name">Games for Cats & Kittens</span>
+              <span class="app-subtitle">Interactive pet entertainment</span>
+            </div>
+            <span class="app-arrow">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 17 17 7M9 7h8v8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </a>
+
+          <a
+            class="app-card"
+            href="https://apps.apple.com/tr/app/kalory-ai-calorie-counter/id6503200291"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="app-icon"
+              src="assets/apps/kalory.jpeg"
+              alt="Kalory app icon"
+              width="54"
+              height="54"
+              loading="lazy"
+            />
+            <div class="app-copy">
+              <span class="app-name">Kalory</span>
+              <span class="app-subtitle">AI calorie counter</span>
+            </div>
+            <span class="app-arrow">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 17 17 7M9 7h8v8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </a>
+
+          <a
+            class="app-card"
+            href="https://apps.apple.com/tr/app/pr-tracker-1rm-cardio-wods/id6738637692"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="app-icon"
+              src="assets/apps/prtracker.png"
+              alt="PR Tracker app icon"
+              width="54"
+              height="54"
+              loading="lazy"
+            />
+            <div class="app-copy">
+              <span class="app-name">PR Tracker</span>
+              <span class="app-subtitle">1RM, cardio, and WODs</span>
+            </div>
+            <span class="app-arrow">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 17 17 7M9 7h8v8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </a>
+
+          <a
+            class="store-link"
+            href="https://apps.apple.com/developer/oguz-doruk/id1378383070"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M17.67 12.9c-.03-2.6 2.15-3.85 2.25-3.9-1.24-1.8-3.15-2.05-3.82-2.08-1.62-.16-3.17.96-3.98.96-.84 0-2.1-.94-3.47-.92-1.78.03-3.43 1.03-4.36 2.62-1.86 3.22-.47 7.97 1.33 10.58.89 1.27 1.94 2.7 3.33 2.65 1.33-.06 1.84-.86 3.45-.86 1.6 0 2.08.86 3.48.83 1.45-.03 2.35-1.3 3.24-2.58 1.02-1.49 1.44-2.93 1.46-3-.03 0-2.82-1.08-2.91-4.3ZM15.04 5.22c.75-.9 1.25-2.15 1.11-3.4-1.08.04-2.37.72-3.14 1.61-.68.79-1.28 2.06-1.12 3.27 1.2.1 2.4-.6 3.15-1.48Z"
+                fill="currentColor"
+              />
+            </svg>
+            More on App Store
           </a>
         </div>
       </section>
 
-      <footer>
-        Contact: <a href="mailto:contact@oguzdoruk.com">contact@oguzdoruk.com</a>
-      </footer>
+      <section class="section" aria-labelledby="about-title">
+        <h2 class="section-title" id="about-title">About</h2>
+        <div class="about-card">
+          <p>
+            I have worked across mobile apps, health tech, e-commerce, agencies,
+            startups, and internal products. These days I mostly build my own
+            apps end to end.
+          </p>
+          <p>
+            I like simple ideas, useful apps, and building things without making
+            them more complicated than they need to be.
+          </p>
+        </div>
+      </section>
+
+      <footer>© 2026 Oğuz Doruk</footer>
     </main>
   </body>
 </html>
